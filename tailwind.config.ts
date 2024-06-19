@@ -388,42 +388,42 @@ const config: Config = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
-    plugin(function ({ addUtilities }) {
-      const backgroundSurfaceStyles = Object.entries(surface).reduce(
-        (acc, [key, value]) => ({
-          ...acc,
-          [`.bg-surface-${key}`]: {
-            "background-color": value.light,
-            ".dark &": {
-              "background-color": value.dark,
+      require("tailwindcss-animate"),
+      plugin(function ({ addUtilities }: { addUtilities: (utilities: any) => void }) {
+        const backgroundSurfaceStyles = Object.entries(surface).reduce(
+          (acc, [key, value]) => ({
+            ...acc,
+            [`.bg-surface-${key}`]: {
+              "background-color": value.light,
+              ".dark &": {
+                "background-color": value.dark,
+              },
             },
+          }),
+          {}
+        );
+  
+        const textForegroundStyles = {
+          ".text-foreground": {
+            color: "var(--color-text-foreground)",
           },
-        }),
-        {}
-      );
-
-      const textForegroundStyles = {
-        ".text-foreground": {
-          color: "var(--color-text-foreground)",
-        },
-      };
-
-      const noScrollbarStyles = {
-        ".no-scrollbar::-webkit-scrollbar": { display: "none" },
-        ".no-scrollbar": {
-          "-ms-overflow-style": "none",
-          "scrollbar-width": "none",
-        },
-      };
-
-      addUtilities({
-        ...backgroundSurfaceStyles,
-        ...textForegroundStyles,
-        ...noScrollbarStyles,
-      });
-    }),
-  ],
+        };
+  
+        const noScrollbarStyles = {
+          ".no-scrollbar::-webkit-scrollbar": { display: "none" },
+          ".no-scrollbar": {
+            "-ms-overflow-style": "none",
+            "scrollbar-width": "none",
+          },
+        };
+  
+        addUtilities({
+          ...backgroundSurfaceStyles,
+          ...textForegroundStyles,
+          ...noScrollbarStyles,
+        });
+      }),
+    ],
 };
 
 export default config;
