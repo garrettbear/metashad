@@ -1,5 +1,7 @@
 "use client";
 import * as React from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import {
   CaretSortIcon,
   ChevronDownIcon,
@@ -236,6 +238,12 @@ export default function Home() {
   return (
     <div className="w-full">
       <div className="w-[90vw] mx-auto pt-4 pb-12 flex flex-col gap-8">
+        <div>
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        </div>
         <div className="">
           <h1 className="text-2xl font-semibold">Buttons Demo</h1>
           <Button>
