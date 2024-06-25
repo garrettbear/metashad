@@ -4,6 +4,7 @@ import {
   CaretSortIcon,
   ChevronDownIcon,
   DotsHorizontalIcon,
+  ArrowRightIcon,
 } from "@radix-ui/react-icons";
 import {
   ColumnDef,
@@ -71,6 +72,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { Check } from "lucide-react";
 
 const data: Payment[] = [
   {
@@ -236,7 +238,9 @@ export default function Home() {
       <div className="w-[90vw] mx-auto pt-4 pb-12 flex flex-col gap-8">
         <div className="">
           <h1 className="text-2xl font-semibold">Buttons Demo</h1>
-          <Button>Click Me</Button>
+          <Button>
+            Click Me <ArrowRightIcon className="ml-2" />
+          </Button>
           <Button variant="outline">Click Me</Button>
         </div>
         <div className="">
